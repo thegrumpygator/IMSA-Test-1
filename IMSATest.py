@@ -5,7 +5,7 @@ Created on Thu Oct 13 15:27:14 2016
 @author: brian
 """
 
-import csv
+#import csv
 import os
 
 import numpy as np
@@ -17,6 +17,8 @@ pd.options.display.max_rows = 20
 pd.options.display.width = 200
 
 strDataPath = "N:\\Users\\brian\\Documents\\GitHub\\IMSA-Test-1\\Data\\2015-2016"
+strDataPath = "IMSA-Test-1\\Data\\2015-2016"
+strDataPath = "C:\\Users\\gator\\Documents\\IMSA-Test-1\\Data\\2015-2016"
 
 print(strDataPath)
 
@@ -28,6 +30,7 @@ def main(name=strDataPath):
     
     # part 1 - load data as a DataFrame
     raw_df = load_data(name)
+    print(raw_df)
     
     # Part 2 - reshape if necessary
     
@@ -40,7 +43,12 @@ def load_data(name):
     
     df = pd.read_csv(filename)
     
-    print(df)
     
+    print(df)
+    print(df.describe())
+    print(df.columns)
+    
+    for col in df.columns:
+        print(col.type) # This line doesn't work
     
 main(strDataPath)
